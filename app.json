@@ -1,0 +1,87 @@
+{
+  "name": "create-rails-app",
+  "description": "CreateRailsApp (Ruby on Rails, JavaScript, Postgres, Redis)",
+  "website": "http://create-rails-app.herokuapp.com",
+  "scripts": {
+    "postdeploy": "bundle exec rake deploy:release"
+  },
+  "env": {
+    "DB_POOL": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "MAILTRAP_PASSWORD": {
+      "required": true
+    },
+    "MAILTRAP_USERNAME": {
+      "required": true
+    },
+    "MAX_THREADS": {
+      "required": true
+    },
+    "MIN_THREADS": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "ROLLBAR_CLIENT_TOKEN": {
+      "required": true
+    },
+    "ROLLBAR_ENV": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "WEB_CONNCURRENCY": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "hobby"
+    },
+    "release": {
+      "quantity": 1,
+      "size": "hobby"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "hobby"
+    }
+  },
+  "addons": [
+    "autobus",
+    "deadmanssnitch",
+    "mailtrap",
+    "papertrail",
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+      "options": {
+        "version": "9.6.1"
+      }
+    },
+    "heroku-redis",
+    "rollbar",
+    "scheduler",
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby",
+      "url": "heroku/nodejs",
+    }
+  ]
+}

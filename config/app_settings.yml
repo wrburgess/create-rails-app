@@ -1,0 +1,40 @@
+defaults: &defaults
+  app_name: "CreateRailsApp Server"
+  app_repo_name: "create-rails-app-server"
+  app_server: "Development"
+  aws_s3_assets_url: "https://xxxxxxxxx.cloudfront.net/assets"
+  aws_s3_region: "x"
+  brand_name: "CreateRailsApp"
+  default_url: "http://localhost:3000"
+  errors_email: "alerts@create-rails-app.com"
+  feedback_email: "support@create-rails-app.com"
+  google_analytics_tracking_id: "UA-xxxxxx-x"
+  no_reply_email: "no-reply@create-rails-app.com"
+  redis_url: ENV["REDIS_URL"]
+  support_email: "support@create-rails-app.com"
+  transactions_email: "transactions@create-rails-app.com"
+  default_page_keywords: "This page needs keywords"
+  default_page_description: "This page needs a description"
+
+test:
+  <<: *defaults
+  app_server: "Test"
+  google_analytics_tracking_id: "UA-xxxxxx-x"
+  redis_url: "redis://localhost:6379"
+
+development:
+  <<: *defaults
+  app_server: "Development"
+  google_analytics_tracking_id: "UA-xxxxxx-x"
+
+staging:
+  <<: *defaults
+  app_server: "Staging"
+  default_url: "https://create-rails-app-staging.herokuapp.com"
+  google_analytics_tracking_id: "UA-xxxxxx-x"
+
+production:
+  <<: *defaults
+  app_server: "Production"
+  default_url: "https://create-rails-app-production.herokuapp.com"
+  google_analytics_tracking_id: "UA-xxxxxx-x"

@@ -1,0 +1,31 @@
+{
+  "name": "create-rails-app",
+  "version": "1.0.0",
+  "description": "A Rails application",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "watch": "webpack -w",
+    "postinstall": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrburgess/create-rails-app.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/wrburgess/create-rails-app/issues"
+  },
+  "homepage": "https://github.com/wrburgess/create-rails-app#readme",
+  "devDependencies": {
+    "babel-core": "^6.20.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.9",
+    "babel-preset-latest": "^6.16.0",
+    "glob-fs": "^0.1.6",
+    "webpack": "^1.14.0"
+  }
+}

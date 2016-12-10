@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : AppSettings.brand_name %></title>
+    <meta name="keywords" content="<%= content_for?(:keywords) ? yield(:keywords) : AppSettings.default_page_keywords %>">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : AppSettings.default_page_description %>">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+  </head>
+  <body class="<%= params[:controller] %> <%= params[:action] %> <%= @activity_role %>">
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

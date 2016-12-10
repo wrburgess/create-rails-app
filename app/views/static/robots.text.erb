@@ -1,0 +1,8 @@
+<% # TODO: Change index to 'allow' for production %>
+<% if Rails.env.production? %>
+  User-Agent: *
+  Disallow: /
+<% else %>
+  User-Agent: *
+  Disallow: /
+<% end %>

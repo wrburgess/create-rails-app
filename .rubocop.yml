@@ -1,0 +1,57 @@
+require: rubocop-rspec
+
+Rails:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Include:
+    - "**/*.gemspec"
+    - "**/Rakefile"
+  Exclude:
+    - "bin/**/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "log/**/*"
+    - "script/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+
+StringLiterals:
+  EnforcedStyle: double_quotes
+
+PerlBackrefs:
+  Enabled: false
+
+SymbolProc:
+  Exclude:
+    - "app/admin/**/*"
+
+LineLength:
+  Max: 200
+
+Documentation:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/VariableNumber:
+  EnforcedStyle: "snake_case"
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: trueSsaadd11
+
+  Exclude:
+    - "spec/spec_helper.rb"
+
+Style/StructInheritance:
+  Enabled: true
+  Exclude:
+    - "app/policies/**/*"

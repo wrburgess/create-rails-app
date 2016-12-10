@@ -1,0 +1,22 @@
+machine:
+  services:
+    - redis
+dependencies:
+  pre:
+    - npm install
+test:
+  override:
+    - bundle exec rspec --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec.xml:
+        parallel: true
+        files:
+          - spec/**/*_spec.rb
+    - bundle exec teaspoon
+  post:
+    
+    - bundle exec rubocop
+deployment:
+  staging:
+    branch: master
+    commands:
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+      - git push git@heroku.com:create-rails-app-staging.git $CIRCLE_SHA1:refs/heads/master
